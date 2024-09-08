@@ -77,3 +77,27 @@ body {
     font-size: 1.1em;
     color: #3b4cca;
   }
+
+  ion-card-title {
+    font-family: 'Press Start 2P', cursive; /* Tipografía retro similar a Pokémon */
+    background-color: #ffffff; /* Fondo suave para resaltar los elementos */
+    color: #ffcb05;
+
+  }
+
+  /* registro.page.scss */
+
+ion-content {
+  --background: #e0f7fa; /* Color celeste claro */
+}
+
+.pixelated-text {
+  font-family: 'Press Start 2P', cursive;
+  color: #f4c542; /* Color amarillo de Pokémon */
+  font-size: 2rem;
+  text-shadow: 
+    1px 1px 0 #000, 
+    2px 2px 0 #000, 
+    3px 3px 0 #000, 
+    4px 4px 0 #000; /* Añade un efecto de sombra para el estilo pixelado */
+}

@@ -5,13 +5,14 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <ion-item>
       <ion-label position="floating">Email</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
-    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-      <ion-text color="danger">
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+      <ion-text>
         <p>Ingrese un email válido.</p>
       </ion-text>
     </div>
@@ -20,8 +21,8 @@
       <ion-label position="floating">Password</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
-    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-      <ion-text color="danger">
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+      <ion-text>
         <p>La contraseña debe contener al menos 4 números, 3 caracteres especiales, y una mayúscula.</p>
       </ion-text>
     </div>
@@ -34,6 +35,7 @@
   <ion-button expand="block" fill="clear" (click)="recuperarContrasena()">
     Recuperar Contraseña
   </ion-button>
+</ion-card>
 </ion-content>
 
 <ion-footer>  

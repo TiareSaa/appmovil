@@ -1,0 +1,113 @@
+/* login.page.scss */
+
+
+
+
+.imagenfondo {
+    --background: url('/src/assets/img/fondopokemon.jpg') no-repeat center center /cover;
+  }
+  
+  .login-container {
+    max-width: 400px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interno del contenedor */
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente para mejor legibilidad */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor del contenedor */
+  }
+  
+  ion-item, ion-button {
+    margin-bottom: 16px; /* Espaciado inferior entre los elementos */
+  }
+  
+  ion-text {
+    font-size: 0.8em;
+    padding-left: 5px;
+    color: #fff; /* Asegura que el texto sea legible sobre la imagen de fondo */
+  }
+  
+  .ion-button {
+    font-size: 0.8rem; /* Cambia el tamaño del texto del botón */
+    padding: 4px 12px; /* Ajusta el relleno interno del botón */
+  }
+  
+  body {
+    font-family: 'Press Start 2P', cursive; /* Tipografía retro similar a Pokémon */
+    background-color: #f6f7fb; /* Fondo suave para resaltar los elementos */
+    color: #2d2d2d; /* Color oscuro para el texto */
+  }
+  
+  /* Tipografía de Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  
+  /* Estilos para el menú lateral */
+  ion-menu {
+    --background: #ffcb05; /* Fondo amarillo Pokémon */
+    --color: #3b4cca; /* Texto azul de Pokémon */
+    font-family: 'Press Start 2P', sans-serif;
+  }
+  
+  ion-menu ion-title {
+    color: #3b4cca;
+    font-size: 1.2em;
+  }
+  
+  ion-menu ion-item {
+    --background-hover: rgba(255, 203, 5, 0.2); /* Fondo al pasar el ratón */
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #3b4cca;
+  }
+  
+  /* Botones */
+  ion-buttons ion-menu-button {
+    --color: #ffcb05;
+  }
+  
+  ion-toolbar {
+    --background: #3b4cca; /* Azul característico de Pokémon */
+  }
+  
+  ion-title {
+    color: #ffcb05; /* Texto amarillo brillante */
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 1.4em;
+  }
+  
+  /* Contenido principal */
+  ion-content {
+    --background: #f6f7fb;
+  }
+  
+  h2 {
+    color: #ffcb05;
+    font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
+    font-size: 1.5em;
+  }
+  
+  ion-list {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-item {
+    --background: #f6f7fb; /* Fondo claro para los items */
+    --color: #3b4cca; /* Texto azul Pokémon */
+    font-size: 1.2em;
+  }
+  
+  ion-item ion-label {
+    font-weight: bold;
+  }
+  
+  /* Mensaje adicional */
+  div.ion-padding {
+    font-family: 'Press Start 2P', sans-serif;
+    text-align: center;
+    font-size: 1.1em;
+    color: #3b4cca;
+  }
+  

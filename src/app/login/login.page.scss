@@ -1,54 +1,5 @@
-ion-content {
-  --padding-start: 20px;
-  --padding-end: 20px;
-}
+/* login.page.scss */
 
-ion-text {
-  font-size: 0.8em;
-  padding-left: 5px;
-}
-
-.ion-button {
-  font-size: 0.8rem; /* Cambia el tamaño del texto del botón */
-  padding: 4px 12px; /* Ajusta el relleno interno del botón */
-}
-
-body {
-  font-family: 'Press Start 2P', cursive; /* Tipografía retro similar a Pokémon */
-  background-color: #f6f7fb; /* Fondo suave para resaltar los elementos */
-  color: #2d2d2d; /* Color oscuro para el texto */
-}
-
-/* Tipografía de Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-/* Estilos para el menú lateral */
-ion-menu {
-  --background: #ffcb05; /* Fondo amarillo Pokémon */
-  --color: #3b4cca; /* Texto azul de Pokémon */
-  font-family: 'Press Start 2P', sans-serif;
-}
-
-ion-menu ion-title {
-  color: #3b4cca;
-  font-size: 1.2em;
-}
-
-ion-menu ion-item {
-  --background-hover: rgba(255, 203, 5, 0.2); /* Fondo al pasar el ratón */
-  font-size: 1.1em;
-  font-weight: bold;
-  color: #3b4cca;
-}
-
-/* Botones */
-ion-buttons ion-menu-button {
-  --color: #ffcb05;
-}
-
-ion-toolbar {
-  --background: #3b4cca; /* Azul característico de Pokémon */
-}
 
 ion-title {
   color: #ffcb05; /* Texto amarillo brillante */
@@ -56,39 +7,43 @@ ion-title {
   font-size: 1.4em;
 }
 
-/* Contenido principal */
-ion-content {
-  --background: #f6f7fb;
+ion-toolbar {
+  --background: #3b4cca; /* Azul característico de Pokémon */
 }
 
-h2 {
-  color: #ffcb05;
-  font-family: 'Press Start 2P', sans-serif;
-  text-align: center;
-  font-size: 1.5em;
-}
-
-ion-list {
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 10px;
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-ion-item {
-  --background: #f6f7fb; /* Fondo claro para los items */
-  --color: #3b4cca; /* Texto azul Pokémon */
-  font-size: 1.2em;
+ion-item, ion-button {
+  margin-bottom: 16px;
 }
 
-ion-item ion-label {
-  font-weight: bold;
+ion-text {
+  font-size: 0.8em;
+  padding-left: 5px;
+  color: #ff3232;
 }
 
-/* Mensaje adicional */
-div.ion-padding {
-  font-family: 'Press Start 2P', sans-serif;
-  text-align: center;
-  font-size: 1.1em;
-  color: #3b4cca;
+.ion-button {
+  font-size: 0.8rem;
+  padding: 4px 12px;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #f6f7fb;
+  color: #2d2d2d;
+}
+
+/* Mensajes de error */
+.error-message {
+  color: #f00; /* Rojo brillante para los mensajes de error */
+  font-size: 0.9rem;
+  padding-left: 8px;
 }

@@ -26,31 +26,34 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content color="light">
+  <!-- Aquí se agrega el estilo del color de fondo -->
+  <ion-content style="--background: #E0F7FA;" class="ion-padding">
     <!-- Mensaje de bienvenida con el nombre del usuario -->
     <div class="ion-padding">
       <h2>¡Bienvenida/o, {{ userName }}!</h2>
     </div>
 
-    <!-- Lista de Pokémon -->
-    <ion-list inset="true">
-      <ion-item>
-        <ion-label>Charizard</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Pikachu</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Ditto</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Squirtle</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label>Articuno</ion-label>
-      </ion-item>
-    </ion-list>
-    
-    <div class="ion-padding">Tap the button in the toolbar to open the menu.</div>
+    <!-- Tarjetas de Pokémon -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" size-md="4" size-lg="3" *ngFor="let pokemon of pokemons">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ pokemon.name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <!-- Imagen centrada -->
+              <div class="pokemon-image-container">
+                <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="pokemon-image">
+              </div>
+              <p>Tipo: {{ pokemon.type }}</p>
+              <p>Nivel: {{ pokemon.level }}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="ion-padding">¡Aquí encontrarás tus Pokémon favoritos!</div>
   </ion-content>
 </div>
