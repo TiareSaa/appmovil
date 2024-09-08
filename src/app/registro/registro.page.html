@@ -1,0 +1,46 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="formularioRegistro" (ngSubmit)="guardar()">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <div *ngIf="formularioRegistro.get('email')?.invalid && formularioRegistro.get('email')?.touched">
+          <small>Email inválido.</small>
+        </div>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input formControlName="password" type="password"></ion-input>
+        </ion-item>
+        <div *ngIf="formularioRegistro.get('password')?.invalid && formularioRegistro.get('password')?.touched">
+          <small>
+            La contraseña debe contener al menos 4 números, 3 caracteres especiales y una mayúscula.
+          </small>
+        </div>
+
+        <ion-item>
+          <ion-label position="floating">Confirmar Contraseña</ion-label>
+          <ion-input formControlName="confirmacionPassword" type="password"></ion-input>
+        </ion-item>
+        <div *ngIf="formularioRegistro.get('confirmacionPassword')?.invalid && formularioRegistro.get('confirmacionPassword')?.touched">
+          <small>Las contraseñas no coinciden.</small>
+        </div>
+
+        <br>
+        <ion-button type="submit" [disabled]="formularioRegistro.invalid">Registrarse</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+

@@ -1,0 +1,19 @@
+<!-- recuperar-contrasena.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recuperar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Ingresa tu correo electrónico</ion-label>
+    <ion-input type="email" [(ngModel)]="correoElectronico"></ion-input>
+  </ion-item>
+  <ion-button expand="full" (click)="enviarCorreo()">Enviar</ion-button>
+  
+  <!-- Mensaje de error -->
+  <ion-text color="danger" *ngIf="mensajeError">
+    <p>{{ mensajeError }}</p>
+  </ion-text>
+</ion-content>

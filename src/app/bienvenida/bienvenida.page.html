@@ -1,0 +1,56 @@
+<!-- Menú lateral -->
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-item routerLink="/home">Home</ion-item>
+      <ion-item routerLink="/settings">Settings</ion-item>
+      <!-- Agrega otros elementos del menú aquí -->
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal -->
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Mis Pokémon</ion-title>
+      <ion-buttons slot="end">
+        <!-- Botón para abrir el menú -->
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content color="light">
+    <!-- Mensaje de bienvenida con el nombre del usuario -->
+    <div class="ion-padding">
+      <h2>¡Bienvenida/o, {{ userName }}!</h2>
+    </div>
+
+    <!-- Lista de Pokémon -->
+    <ion-list inset="true">
+      <ion-item>
+        <ion-label>Charizard</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pikachu</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ditto</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Squirtle</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Articuno</ion-label>
+      </ion-item>
+    </ion-list>
+    
+    <div class="ion-padding">Tap the button in the toolbar to open the menu.</div>
+  </ion-content>
+</div>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      <ion-text color="danger">
+        <p>Ingrese un email válido.</p>
+      </ion-text>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+      <ion-text color="danger">
+        <p>La contraseña debe contener al menos 4 números, 3 caracteres especiales, y una mayúscula.</p>
+      </ion-text>
+    </div>
+
+    <!-- Botón de Login -->
+    <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Login</ion-button>
+  </form>
+
+  <!-- Botón de Recuperar Contraseña -->
+  <ion-button expand="block" fill="clear" (click)="recuperarContrasena()">
+    Recuperar Contraseña
+  </ion-button>
+</ion-content>
+
+<ion-footer>  
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/registro']">Registrarse</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
