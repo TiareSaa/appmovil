@@ -1,0 +1,25 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Buscar Pokémon</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Nombre del Pokémon</ion-label>
+      <ion-input [(ngModel)]="pokemonName" type="text"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="searchPokemon()">Buscar</ion-button>
+    
+    <ion-spinner *ngIf="loading"></ion-spinner>
+
+    <div *ngIf="error" style="color: red;">{{ error }}</div>
+
+    <div *ngIf="pokemonData">
+      <h2>{{ pokemonData.name | titlecase }}</h2>
+      <img [src]="pokemonData.sprites.front_default" alt="{{ pokemonData.name }}" />
+      <p>Tipo: {{ pokemonData.types[0].type.name | titlecase }}</p>
+      <p>Poder: {{ pokemonData.base_experience }}</p>
+      <p>Habilidades: {{ pokemonData.abilities[0].ability.name | titlecase }}</p>
+    </div>
+  </ion-card-content>
+</ion-card>

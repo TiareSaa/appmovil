@@ -9,7 +9,6 @@
     <ion-list>
       <ion-item routerLink="/home">Home</ion-item>
       <ion-item routerLink="/settings">Settings</ion-item>
-      <!-- Agrega otros elementos del menú aquí -->
     </ion-list>
   </ion-content>
 </ion-menu>
@@ -20,18 +19,39 @@
     <ion-toolbar>
       <ion-title>Mis Pokémon</ion-title>
       <ion-buttons slot="end">
-        <!-- Botón para abrir el menú -->
         <ion-menu-button autoHide="false"></ion-menu-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
-  <!-- Aquí se agrega el estilo del color de fondo -->
   <ion-content style="--background: #E0F7FA;" class="ion-padding">
-    <!-- Mensaje de bienvenida con el nombre del usuario -->
     <div class="ion-padding">
       <h2>¡Bienvenida/o, {{ userName }}!</h2>
     </div>
+
+    <!-- Formulario para agregar Pokémon -->
+    <form (ngSubmit)="addPokemon()" #pokemonForm="ngForm">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" required [(ngModel)]="newPokemon.nombre" name="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Tipo</ion-label>
+        <ion-input type="text" required [(ngModel)]="newPokemon.tipo" name="tipo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Poder</ion-label>
+        <ion-input type="number" required [(ngModel)]="newPokemon.poder" name="poder"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Habilidad</ion-label>
+        <ion-input type="text" required [(ngModel)]="newPokemon.habilidad" name="habilidad"></ion-input>
+      </ion-item>
+      <ion-button expand="full" type="submit">Agregar Pokémon</ion-button>
+    </form>
+
+    <!-- Componente de búsqueda de Pokémon -->
+    <app-pokemon-search></app-pokemon-search>
 
     <!-- Tarjetas de Pokémon -->
     <ion-grid>
@@ -39,15 +59,16 @@
         <ion-col size="6" size-md="4" size-lg="3" *ngFor="let pokemon of pokemons">
           <ion-card>
             <ion-card-header>
-              <ion-card-title>{{ pokemon.name }}</ion-card-title>
+              <ion-card-title>{{ pokemon.nombre }}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <!-- Imagen centrada -->
-              <div class="pokemon-image-container">
-                <img [src]="pokemon.image" alt="{{ pokemon.name }}" class="pokemon-image">
-              </div>
-              <p>Tipo: {{ pokemon.type }}</p>
-              <p>Nivel: {{ pokemon.level }}</p>
+              <p>Tipo: {{ pokemon.tipo }}</p>
+              <p>Poder: {{ pokemon.poder }}</p>
+              <p>Habilidad: {{ pokemon.habilidad }}</p>
+
+              <!-- Botones para editar y eliminar Pokémon -->
+              <ion-button color="warning" (click)="editPokemon(pokemon)">Editar</ion-button>
+              <ion-button color="danger" (click)="deletePokemon(pokemon.id)">Eliminar</ion-button>
             </ion-card-content>
           </ion-card>
         </ion-col>

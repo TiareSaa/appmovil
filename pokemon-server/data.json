@@ -1,0 +1,120 @@
+{
+  "Pokemon": [
+    {
+      "id": "1730066664041",
+      "nombre": "tiare",
+      "tipo": "tiare",
+      "poder": 89999,
+      "habilidad": "tiare",
+      "userId": "1730066527406"
+    },
+    {
+      "id": "1730079272466",
+      "nombre": "asdasd",
+      "tipo": "asdasd",
+      "poder": 1231,
+      "habilidad": "asd",
+      "userId": "1730070101833"
+    },
+    {
+      "id": "1730144799904",
+      "nombre": "asdasd",
+      "tipo": "asdasd",
+      "poder": 123123,
+      "habilidad": "asdasd",
+      "userId": "1730078189038"
+    }
+  ],
+  "Users": [
+    {
+      "id": "1",
+      "nombre": "Franco",
+      "email": "franco@example.com",
+      "rol": "Administrador"
+    },
+    {
+      "id": "2",
+      "nombre": "Ana",
+      "email": "ana@example.com",
+      "rol": "Usuario"
+    },
+    {
+      "id": "1730065500737",
+      "nombre": "Juan",
+      "email": "juan@juan.cl",
+      "password": "1234J..."
+    },
+    {
+      "id": "1730066527406",
+      "nombre": "Tiare",
+      "email": "tiare@tiare.cl",
+      "password": "1234T..."
+    },
+    {
+      "id": "1730066765555",
+      "nombre": "Franco",
+      "email": "franco@franco.cl",
+      "password": "1234F..."
+    },
+    {
+      "id": "1730070101833",
+      "nombre": "Sergio",
+      "email": "sergio@sergio.cl",
+      "password": "1234S..."
+    },
+    {
+      "id": "1730070351784",
+      "nombre": "lolo",
+      "email": "lolo@lolo.cl",
+      "password": "1234L..."
+    },
+    {
+      "id": "1730071516742",
+      "nombre": "jj",
+      "email": "jj@jj.cl",
+      "password": "1234J..."
+    },
+    {
+      "id": "1730073509353",
+      "nombre": "marco",
+      "email": "marco@marco.cl",
+      "password": "1234M..."
+    },
+    {
+      "id": "1730074048293",
+      "nombre": "Ester",
+      "email": "ester@ester.cl",
+      "password": "1234E..."
+    },
+    {
+      "id": "1730075898206",
+      "nombre": "sebastian",
+      "email": "sebastian@sebastian.cl",
+      "password": "1234S..."
+    },
+    {
+      "id": "1730076566547",
+      "nombre": "lolcito",
+      "email": "lolcito@lol.cl",
+      "password": "1234L..."
+    },
+    {
+      "id": "1730076748176",
+      "nombre": "nunez",
+      "email": "nunez@nunez.cl",
+      "password": "1234N..."
+    },
+    {
+      "id": "1730077869966",
+      "nombre": "diego",
+      "email": "diego@diego.cl",
+      "password": "1234D..."
+    },
+    {
+      "id": "1730078189038",
+      "nombre": "lala",
+      "email": "lala@lala.cl",
+      "password": "1111L..."
+    }
+  ]
+}

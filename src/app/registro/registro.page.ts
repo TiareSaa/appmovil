@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router'; 
+import { Router, NavigationExtras } from '@angular/router'; 
 
 @Component({
   selector: 'app-registro',
@@ -50,13 +50,15 @@ export class RegistroPage {
     if (this.formularioRegistro.valid) {
       const nombreUsuario = this.formularioRegistro.get('nombre')?.value;
 
-      // Guarda el nombre del usuario en localStorage
-      localStorage.setItem('userName', nombreUsuario);
+      // Usamos NavigationExtras para pasar el nombre del usuario
+      const navigationExtras: NavigationExtras = {
+        state: { nombre: nombreUsuario }
+      };
 
       console.log('Registro exitoso');
 
-      // Redireccionar a la página de bienvenida
-      this.router.navigate(['/']);
+      // Redireccionar a la página de bienvenida con el nombre
+      this.router.navigate(['/bienvenida'], navigationExtras);
     } else {
       console.log('Formulario inválido');
     }

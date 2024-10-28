@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { ConfirmacionModalPage } from '../confirmacion-modal/confirmacion-modal.component'; // Asegúrate de que la ruta es correcta
+import { ConfirmacionModalPage } from '../recuperar/confirmacion-modal.component'; // Asegúrate de que la ruta es correcta
 
 @Component({
   selector: 'app-recuperar-contrasena',
