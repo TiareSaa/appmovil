@@ -34,6 +34,6 @@ export class DataService {
 
   // Registrar un nuevo usuario
   addUser(user: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/Users`, user); // Asegúrate de que este método devuelve el usuario agregado.
+    return this.http.post<any>(`${this.apiUrl}/Users/`, user); // Asegúrate de que este método devuelve el usuario agregado.
   }
 }

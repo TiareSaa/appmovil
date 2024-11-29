@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, NavigationExtras } from '@angular/router'; 
+import { Router, NavigationExtras } from '@angular/router';
+import { DataService } from '../services/data.service'; // Asegúrate de importar el servicio
 
 @Component({
   selector: 'app-registro',
@@ -10,8 +11,11 @@ import { Router, NavigationExtras } from '@angular/router';
 export class RegistroPage {
   formularioRegistro: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
-    // Inyecta el Router
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private dataService: DataService // Inyecta el servicio de datos
+  ) {
     this.formularioRegistro = this.formBuilder.group({
       nombre: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -49,16 +53,29 @@ export class RegistroPage {
   guardar() {
     if (this.formularioRegistro.valid) {
       const nombreUsuario = this.formularioRegistro.get('nombre')?.value;
+      const email = this.formularioRegistro.get('email')?.value;
+      const password = this.formularioRegistro.get('password')?.value;
 
-      // Usamos NavigationExtras para pasar el nombre del usuario
-      const navigationExtras: NavigationExtras = {
-        state: { nombre: nombreUsuario }
-      };
+      // Crear el objeto usuario con los datos del formulario
+      const nuevoUsuario = { nombre: nombreUsuario, email, password };
 
-      console.log('Registro exitoso');
+      // Llamar a la función addUser del servicio para guardar el usuario en la API
+      this.dataService.addUser(nuevoUsuario).subscribe(
+        (response) => {
+          console.log('Usuario registrado exitosamente:', response);
 
-      // Redireccionar a la página de bienvenida con el nombre
-      this.router.navigate(['/bienvenida'], navigationExtras);
+          // Configurar NavigationExtras con el nombre del usuario registrado
+          const navigationExtras: NavigationExtras = {
+            state: { nombre: nombreUsuario }
+          };
+
+          // Redireccionar a la página de bienvenida con el nombre del usuario
+          this.router.navigate(['/bienvenida'], navigationExtras);
+        },
+        (error) => {
+          console.error('Error al registrar el usuario:', error);
+        }
+      );
     } else {
       console.log('Formulario inválido');
     }
