@@ -1,7 +1,6 @@
 <ion-content>
   <ion-card>
     <ion-card-header>
-      
       <ion-card-title class="pixelated-text">Registro</ion-card-title>
     </ion-card-header>
     <ion-card-content>
@@ -38,9 +37,12 @@
         </div>
 
         <br>
-        <ion-button type="submit" [disabled]="formularioRegistro.invalid">Registrarse</ion-button>
+        <ion-button type="submit" expand="block" [disabled]="formularioRegistro.invalid">Registrarse</ion-button>
       </form>
+
+      <ion-button expand="block" color="secondary" (click)="registrarConGoogle()">
+        Registrarse con Google
+      </ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
-

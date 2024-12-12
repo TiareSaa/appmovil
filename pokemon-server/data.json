@@ -15,6 +15,14 @@
       "poder": 1231,
       "habilidad": "asd",
       "userId": "1730070101833"
+    },
+    {
+      "id": "1734031639823",
+      "nombre": "pikachu",
+      "tipo": "electric",
+      "poder": 112,
+      "habilidad": "Static",
+      "userId": "1730078189038"
     }
   ],
   "Users": [
@@ -125,6 +133,18 @@
       "nombre": "tt",
       "email": "tt@tt.cl",
       "password": "1234T..."
+    },
+    {
+      "id": "9123",
+      "nombre": "tomas",
+      "email": "tomas@tomas.cl",
+      "password": "1234T..."
+    },
+    {
+      "id": "e31b",
+      "nombre": "Juan",
+      "email": "juan@gmail.com",
+      "password": "1234J..."
     }
   ]
 }

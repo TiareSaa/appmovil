@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router';
-import { DataService } from '../services/data.service'; // Asegúrate de importar el servicio
+import { DataService } from '../services/data.service'; // Servicio para manejar datos
+import { AuthService } from '../services/auth.service'; // Servicio para autenticación
+import { FirestoreService } from '../services/firestore.service';
 
 @Component({
   selector: 'app-registro',
@@ -14,7 +16,9 @@ export class RegistroPage {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private dataService: DataService // Inyecta el servicio de datos
+    private dataService: DataService, // Servicio para datos
+    private authService: AuthService, // Servicio para autenticación
+    private firestore: FirestoreService //servicio para firebase
   ) {
     this.formularioRegistro = this.formBuilder.group({
       nombre: ['', Validators.required],
@@ -24,11 +28,15 @@ export class RegistroPage {
     }, { validator: this.matchingPasswords('password', 'confirmacionPassword') });
   }
 
+  getLogin() {
+      this.firestore.getCollection();
+  }
+
   passwordValidator(control: any): { [key: string]: any } | null {
     const value = control.value || '';
     const hasUpperCase = /[A-Z]/.test(value);
     const hasNumber = /\d{4,}/.test(value); // Al menos 4 números
-    const hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{3,}/.test(value); // Al menos 3 caracteres especiales
+    const hasSpecialChar = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>\/?]{3,}/.test(value); // Al menos 3 caracteres especiales
     const isValid = hasUpperCase && hasNumber && hasSpecialChar;
     return !isValid ? { invalidPassword: true } : null;
   }
@@ -56,20 +64,16 @@ export class RegistroPage {
       const email = this.formularioRegistro.get('email')?.value;
       const password = this.formularioRegistro.get('password')?.value;
 
-      // Crear el objeto usuario con los datos del formulario
       const nuevoUsuario = { nombre: nombreUsuario, email, password };
 
-      // Llamar a la función addUser del servicio para guardar el usuario en la API
       this.dataService.addUser(nuevoUsuario).subscribe(
         (response) => {
           console.log('Usuario registrado exitosamente:', response);
 
-          // Configurar NavigationExtras con el nombre del usuario registrado
           const navigationExtras: NavigationExtras = {
             state: { nombre: nombreUsuario }
           };
 
-          // Redireccionar a la página de bienvenida con el nombre del usuario
           this.router.navigate(['/bienvenida'], navigationExtras);
         },
         (error) => {
@@ -78,6 +82,25 @@ export class RegistroPage {
       );
     } else {
       console.log('Formulario inválido');
+    }
+  }
+
+  async registrarConGoogle() {
+    try {
+      const usuario = await this.authService.loginWithGoogle();
+
+      if (usuario) {
+        console.log('Usuario autenticado con Google:', usuario);
+
+        const navigationExtras: NavigationExtras = {
+          state: { nombre: usuario.displayName }
+        };
+
+        // Redirigir al usuario a la página de bienvenida
+        this.router.navigate(['/bienvenida'], navigationExtras);
+      }
+    } catch (error) {
+      console.error('Error al autenticar con Google:', error);
     }
   }
 }
